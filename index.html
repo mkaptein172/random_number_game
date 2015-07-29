@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Random number game</title>  
+    
+</head>
+<body>
+<script type="text/javascript">
+var z = confirm("Welcome to the Random number Game!\nPress 'OK' to begin or 'Cancel' to end.\nBy @mkaptein172");
+    if (z == true) {
+        var RandomNumber = Math.floor(Math.random(0,1) * 100);
+        var count = 0;
+        UserGuess = parseInt(prompt("Guess THE NUMBER (between 0 and 100):\nTries: "+count,""));
+        while (UserGuess != RandomNumber) {
+            count++;
+            if (UserGuess > RandomNumber) {
+                UserGuess = parseInt(prompt("Guess THE NUMBER (between 0 and 100):\nGUESS LOWER!\nTries: "+count,""));
+            } else {
+                UserGuess = parseInt(prompt("Guess THE NUMBER (between 0 and 100):\nGUESS HIGHER!\nTries: "+count,""));
+            }
+        }
+        alert("You won!! The random number was indeed "+RandomNumber+"!!!");
+        document.writeln('<h1><center>Thanks for playing!!!<br><br>You tried '+count+' times!</center></h1>');       
+    } else {
+        document.writeln('<h1><center>Thanks for at least starting the programm!!!</center></h1>');
+    }   
+</script>  
+</body>
+</html>

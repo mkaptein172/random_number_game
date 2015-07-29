@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Brainer</title>      
+</head>
+<body>
+<script type="text/javascript">
+var ToStartOrNotToStart = confirm("Do you want to start this Brain Trainer (Brainer) by @mkaptein ?\nPress 'OK' to start, or 'Cancel' to abort.");
+if (ToStartOrNotToStart == true) {
+//settings&var declaration
+var ExerciseCount = parseInt(prompt("Enter the number of memorise exercises you want to do!\nDefault is 3",3));
+var StringLength = parseInt(prompt("Enter the desired length of the string you want to memorise!\nDefault is 5",5));
+var ExerciseCounterForLoop = 0;
+var StringArray = new Array();
+   
+while (ExerciseCounterForLoop < ExerciseCount) {
+    function rand(length,current){
+    current = current ? current : '';
+    return length ? rand( --length , "0123456789abcdefghijklmnopqrstuvwxyz".charAt( Math.floor( Math.random() * 36 ) ) + current ) : current;//bak 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    }
+    var v = rand(StringLength);
+    StringArray.push(v);
+    //save each time in different place@array
+    ExerciseCounterForLoop++;
+    alert(ExerciseCounterForLoop+" exercise.\nMemorise this: <  "+v+"  >\nPress 'OK' when done.");
+
+    
+}
+var ExerciseToAsk = 0; //has to be outside for loop
+var StringArrayLength = StringArray.length;
+for (var i = 0; i < StringArrayLength; i++) {//or .forEach //before was .every
+    var ExerciseToAskUser = ExerciseToAsk + 1;
+    var UserInput = prompt("Input the "+ExerciseToAskUser+" string you memorised:","");
+    var TheNecessaryItemFromArray = StringArray[ExerciseToAsk];
+    ExerciseToAsk++;
+    
+    if (UserInput == TheNecessaryItemFromArray) {
+        alert("Correct!");
+    } else {
+        alert("Wrong! The right string was <  "+TheNecessaryItemFromArray+"  >!");
+    }
+}
+alert("Thank for playing!!\nI hope you are more intelligent now!:)");
+
+} else {
+    alert("Lame, you didn't even attempt to start!!:()");
+}
+</script>
+</body>
+</html>
