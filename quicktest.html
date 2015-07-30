@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Ball game</title>
+</head>
+<body>
+<canvas id="main" style="border:3px solid green;">Your browser does not support the HTML5 canvas tag.</canvas>
+<script type="text/javascript">
+//make canvas full screen
+var canvas = document.getElementById("main");
+canvas.width  = window.innerWidth;
+canvas.height = window.innerHeight;
+//should be full screen AND responsive
+var StartOrNot = confirm("Do you want to start Ball game?");
+    if (StartOrNot == true) {
+         //TIMER
+        var time = new Date();
+        var NewTimeInSeconds = time.setSeconds(0);
+        //TIMER END
+        gogo();
+    } else {
+        //stop
+    }
+
+
+function gogo() {
+    //here
+    alert("After you press OK you will see (in an alert box) how many seconds passed while you were looking at this!");
+    var TimeInSeconds = NewTimeInSeconds.getSeconds();
+    alert(TimeInSeconds);
+    var context = canvas.getContext("2d");
+    context.fillStyle = "yellow";
+    context.beginPath();
+    context.arc(95, 85, 40, 0, 2*Math.PI);
+    context.closePath();
+    context.fill();
+    context.lineWidth = 2;
+    context.stroke();
+    context.fillStyle = "black";
+}
+    
+    
+    
+</script>
+</body>
+</html>
